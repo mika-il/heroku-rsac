@@ -1,4 +1,5 @@
 var express = require('express')
+var cors = require('cors')
 var bodyParser = require('body-parser')
 var expressValidator  = require('express-validator')
 
@@ -7,6 +8,7 @@ var contact = require('./router/index')
 var app = express()
 var port = process.env.PORT || 8080;
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(expressValidator() )
