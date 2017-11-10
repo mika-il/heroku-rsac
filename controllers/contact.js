@@ -27,7 +27,7 @@ module.exports = {
                 from: req.body.email, // sender address
                 to: emailConfig.receiver, // list of receivers
                 subject: req.body.subject + '[ ' + req.body.name + ' ]', // Subject line
-                html: req.body.message
+                html: req.body.message + ' [' + req.body.email + ' ]'
             };
         
             transporter.sendMail(mailOptions, function(error, info){
