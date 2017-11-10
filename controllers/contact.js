@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer')
-var emailConfig = require('../config/email')
+var emailConfig = require('../config/mail')
 
 module.exports = {
     index: function(req,res) {
