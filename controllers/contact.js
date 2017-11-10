@@ -25,7 +25,7 @@ module.exports = {
             var mailOptions = {
                 from: req.body.email, // sender address
                 to: 'alan.ismas@outlook.com', // list of receivers
-                subject: req.body.subject, // Subject line
+                subject: req.body.subject + '[ ' + req.body.name + ' ]', // Subject line
                 html: req.body.message
             };
         
