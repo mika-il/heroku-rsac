@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer')
+var emailConfig = require('../config/email')
 
 module.exports = {
     index: function(req,res) {
@@ -15,16 +16,16 @@ module.exports = {
            res.json({status: errors})
         }else {
             var transporter = nodemailer.createTransport({
-                service: 'Gmail',
+                service: emailConfig.service,
                 auth: {
-                    user: 'ismas.alan@gmail.com', // Your email id
-                    pass: 'tel091710923' // Your password
+                    user: emailConfig.username , // Your email id
+                    pass: emailConfig.password // Your password
                 }
             });
            
             var mailOptions = {
                 from: req.body.email, // sender address
-                to: 'alan.ismas@outlook.com', // list of receivers
+                to: emailConfig.receiver, // list of receivers
                 subject: req.body.subject + '[ ' + req.body.name + ' ]', // Subject line
                 html: req.body.message
             };
